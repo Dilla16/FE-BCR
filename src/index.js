@@ -19,56 +19,59 @@ import Carousel from "./pages/components/carousel";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
-    <Protected>
-      <Navbar />
-      <Routes path="/">
-        <Route
-          path="/"
-          element={<Home />}
-        />
-        <Route
-          path="/home"
-          element={<Home />}
-        />
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-        <Route
-          path="/search"
-          element={<DummySearch />}
-        />
-        <Route
-          path="/login"
-          element={<Login />}
-        />
-        <Route
-          path="/register"
-          element={<Register />}
-        />
-        <Route
-          path="/image"
-          element={
-            <LayoutContextProvider>
-              <Image />
-            </LayoutContextProvider>
-          }
-        />
-        <Route
-          path="/carimobil"
-          element={<DummySearch />}
-        />
-        <Route
-          path="/carousel"
-          element={<Carousel />}
-        />
-        <Route
-          path="*"
-          element={<NotFound />}
-        />
-      </Routes>
-      <Footer />
-    </Protected>
+    <Navbar />
+    <Routes path="/">
+      <Route
+        path="/"
+        element={
+          <Protected>
+            <Home />
+          </Protected>
+        }
+      />
+      <Route
+        path="/home"
+        element={
+          <Protected>
+            <Home />
+          </Protected>
+        }
+      />
+      <Route
+        path="*"
+        element={<NotFound />}
+      />
+      <Route
+        path="/search"
+        element={<DummySearch />}
+      />
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+      <Route
+        path="/register"
+        element={<Register />}
+      />
+      <Route
+        path="/image"
+        element={
+          <LayoutContextProvider>
+            <Image />
+          </LayoutContextProvider>
+        }
+      />
+      <Route
+        path="/carousel"
+        element={<Carousel />}
+      />
+      <Route
+        path="*"
+        element={<NotFound />}
+      />
+    </Routes>
+
+    <Footer />
   </BrowserRouter>
 );
 
